@@ -51,7 +51,7 @@ export default function MobileMenu() {
         <div className="relative z-[100]">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/90"
             onClick={() => setOpen(false)}
           />
 
