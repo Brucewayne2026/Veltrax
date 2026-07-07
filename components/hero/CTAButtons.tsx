@@ -41,7 +41,7 @@ export default function CTAButtons() {
       <VideoModal
         isOpen={isVideoOpen}
         onClose={() => setIsVideoOpen(false)}
-        videoSrc="/video/admin.MP4"
+        videoSrc="/video/admin.mp4"
       />
     </>
   );
