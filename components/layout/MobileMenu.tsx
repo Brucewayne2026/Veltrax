@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { scrollToSection } from "@/lib/scrollTo";
@@ -16,29 +17,46 @@ const links = [
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
 
   return (
     <>
       {/* Hamburger trigger */}
       <button
         onClick={() => setOpen(true)}
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-white/70 transition-colors hover:bg-white/10 hover:text-white lg:hidden dark:border-white/15 dark:bg-white/5 dark:text-white/70 dark:hover:bg-white/10 dark:hover:text-white light:border-black/15 light:bg-black/5 light:text-black/70 light:hover:bg-black/10 light:hover:text-black"
+        className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-white/70 transition-colors hover:bg-white/10 hover:text-white lg:hidden dark:border-white/15 dark:bg-white/5 dark:text-white/70 dark:hover:bg-white/10 dark:hover:text-white light:border-black/15 light:bg-black/5 light:text-black/70 light:hover:bg-black/10 light:hover:text-black"
         aria-label="Open menu"
       >
-        <Menu className="h-4 w-4" />
+        <Menu className="h-5 w-5" />
       </button>
 
       {/* Overlay + drawer */}
-      {open && (
-        <>
+      {mounted && open && createPortal(
+        <div className="relative z-[100]">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           />
 
           {/* Slide-in panel */}
-          <div className="fixed right-0 top-0 z-[70] flex h-full w-72 flex-col border-l bg-[#0A0A0F] px-6 py-8 border-white/8 dark:bg-[#0A0A0F] dark:border-white/8 light:bg-white light:border-black/10">
+          <div className="fixed right-0 top-0 flex h-full w-72 flex-col border-l bg-[#0A0A0F] px-6 py-8 border-white/8 dark:bg-[#0A0A0F] dark:border-white/8 light:bg-white light:border-black/10 shadow-2xl">
             {/* Header */}
             <div className="mb-10 flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -47,10 +65,10 @@ export default function MobileMenu() {
               </div>
               <button
                 onClick={() => setOpen(false)}
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-white/50 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white/50 dark:hover:text-white light:border-black/15 light:bg-black/5 light:text-black/50 light:hover:text-black"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-white/50 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white/50 dark:hover:text-white light:border-black/15 light:bg-black/5 light:text-black/50 light:hover:text-black"
                 aria-label="Close menu"
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5" />
               </button>
             </div>
 
@@ -95,7 +113,8 @@ export default function MobileMenu() {
               </a>
             </div>
           </div>
-        </>
+        </div>,
+        document.body
       )}
     </>
   );

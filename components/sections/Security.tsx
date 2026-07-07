@@ -40,7 +40,7 @@ const specs = [
 
 export default function Security() {
   return (
-    <section className="relative py-28 sm:py-36">
+    <section className="relative py-16 sm:py-24 lg:py-36">
       <Container id="security">
         <SectionTitle
           eyebrow="How it's actually built"

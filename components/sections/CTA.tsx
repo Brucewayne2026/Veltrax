@@ -7,7 +7,7 @@ import DemoRequestForm from "@/components/sections/DemoRequestForm";
 
 export default function CTA() {
   return (
-    <section className="relative py-28 sm:py-36 overflow-hidden">
+    <section className="relative py-16 sm:py-24 lg:py-36 overflow-hidden">
       {/* ambient glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="h-[500px] w-[700px] rounded-full bg-[#4F8CFF]/8 blur-[120px]" />

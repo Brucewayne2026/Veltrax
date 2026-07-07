@@ -40,7 +40,7 @@ export default function SectionTitle({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.05 }}
-        className="max-w-2xl font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl dark:text-white light:text-black"
+        className="max-w-2xl font-[family-name:var(--font-heading)] text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl dark:text-white light:text-black"
       >
         {title}
       </motion.h2>

@@ -98,7 +98,7 @@ function AnimatedNumber({
 
 export default function Statistics() {
   return (
-    <section className="relative py-28 sm:py-36">
+    <section className="relative py-16 sm:py-24 lg:py-36">
       {/* subtle grid */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.03] light:opacity-[0.05]"

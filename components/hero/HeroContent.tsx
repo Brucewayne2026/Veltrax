@@ -32,10 +32,10 @@ export default function HeroContent() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="mb-6 max-w-4xl font-[family-name:var(--font-heading)]"
           >
-            <span className="mb-2 block text-5xl font-bold leading-[1.05] text-white sm:text-6xl dark:text-white light:text-black">
+            <span className="mb-2 block text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl dark:text-white light:text-black">
               Track work the way it
             </span>
-            <span className="block text-5xl font-black leading-[1.05] text-gradient sm:text-6xl">
+            <span className="block text-4xl font-black leading-tight text-gradient sm:text-5xl lg:text-6xl">
               actually happens
             </span>
           </motion.h1>
@@ -45,7 +45,7 @@ export default function HeroContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="mb-10 max-w-2xl text-lg leading-relaxed text-white/65 sm:text-xl dark:text-white/65 light:text-black/65"
+            className="mb-10 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg lg:text-xl dark:text-white/65 light:text-black/65"
           >
             Live session tracking, leave management, and an AI assistant with real,
             role-scoped access to your data — running on the same production system

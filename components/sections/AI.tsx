@@ -8,7 +8,7 @@ import GlassCard from "@/components/shared/GlassCard";
 
 export default function AI() {
   return (
-    <section className="relative py-28 sm:py-36">
+    <section className="relative py-16 sm:py-24 lg:py-36">
       <Container id="ai">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           <div>

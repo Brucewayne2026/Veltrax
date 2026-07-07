@@ -14,7 +14,7 @@ const sessions = [
 
 export default function Dashboard() {
   return (
-    <section className="relative py-28 sm:py-36">
+    <section className="relative py-16 sm:py-24 lg:py-36">
       <Container id="dashboard">
         <SectionTitle
           eyebrow="01 — See it happen live"
