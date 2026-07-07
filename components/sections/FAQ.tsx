@@ -9,7 +9,7 @@ import SectionTitle from "@/components/shared/SectionTitle";
 const faqs = [
   {
     q: "What kind of companies is Veltrax built for?",
-    a: "Any organization that tracks hourly or daily production output by staff — primarily RCM (Revenue Cycle Management) and medical billing teams. It's been running on a live production floor, so the workflows, field definitions, and KPIs are shaped by real RCM operations.",
+    a: "Any organization that tracks hourly or daily production output by staff — operations, back-office, support, or processing teams of any kind. It's been battle-tested on a live, high-volume production floor (an RCM/medical billing operation), so the workflows, targets, and reporting are shaped by real day-to-day floor management, not theory.",
   },
   {
     q: "Does Veltrax work on-premise, or is it cloud-only?",
