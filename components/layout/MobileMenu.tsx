@@ -23,18 +23,6 @@ export default function MobileMenu() {
     setMounted(true);
   }, []);
 
-  // Lock body scroll when menu is open
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [open]);
-
   return (
     <>
       {/* Hamburger trigger */}
@@ -47,16 +35,24 @@ export default function MobileMenu() {
       </button>
 
       {/* Overlay + drawer */}
-      {mounted && open && createPortal(
-        <div className="relative z-[100]">
+      {mounted && createPortal(
+        <div 
+          className={`fixed inset-0 z-[100] transition-opacity duration-300 ${
+            open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/90"
+            className="absolute inset-0 bg-black/90"
             onClick={() => setOpen(false)}
           />
 
           {/* Slide-in panel */}
-          <div className="fixed right-0 top-0 flex h-full w-72 flex-col border-l bg-[#0A0A0F] px-6 py-8 border-white/8 dark:bg-[#0A0A0F] dark:border-white/8 light:bg-white light:border-black/10 shadow-2xl">
+          <div 
+            className={`absolute right-0 top-0 flex h-full w-72 flex-col border-l bg-[#0A0A0F] px-6 py-8 border-white/8 dark:bg-[#0A0A0F] dark:border-white/8 light:bg-white light:border-black/10 shadow-2xl transition-transform duration-300 ease-out ${
+              open ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
             {/* Header */}
             <div className="mb-10 flex items-center justify-between">
               <div className="flex items-center gap-3">
