@@ -107,7 +107,7 @@ export default function DemoRequestForm() {
             value={form.company}
             onChange={update("company")}
             className="rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-white/25 outline-none transition-colors focus:border-[#4F8CFF]/50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder-white/25 light:border-black/15 light:bg-black/5 light:text-black light:placeholder-black/30"
-            placeholder="Acme RCM"
+            placeholder="Acme Corp"
           />
         </div>
         <div className="flex flex-col gap-1.5">
